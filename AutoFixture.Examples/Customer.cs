@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AutoFIxture.Examples
 {
@@ -6,14 +7,13 @@ namespace AutoFIxture.Examples
     {
         public Customer(
             string firstName, string lastName, string middleName,
-            string zipCode, int age, string address)
+            int age, List<Address> addresses)
         {
             FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             MiddleName = middleName ?? throw new ArgumentNullException(nameof(middleName));
             Age = age;
-            Address = address ?? throw new ArgumentNullException(nameof(address));
-            ZipCode = zipCode ?? throw new ArgumentNullException(nameof(zipCode)); ;
+            Addresses = addresses ?? throw new ArgumentNullException(nameof(addresses));
         }
 
         public string FirstName { get; set; }
@@ -21,7 +21,6 @@ namespace AutoFIxture.Examples
         public string LastName { get; set; }
         public string FullName { get { return $"{FirstName} {MiddleName} {LastName}"; } }
         public int Age { get; set; }
-        public string Address { get; set; }
-        public string ZipCode { get; set; }
+        public List<Address> Addresses { get; set; }
     }
 }
